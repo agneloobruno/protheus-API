@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const routes = require('../routes');
+const routes = require('./routes');
 
 class App {
     constructor() {
@@ -15,10 +15,10 @@ class App {
         /*Parâmetros de Configuração*/ 
         this.app.use((req, res, next) => {
             res.header("Access-Controll-Allow-Origin", "*");
-            res.header("Access-Controll-Allow-Methods", "Get, POST PUT, DELETE")
+            res.header("Access-Controll-Allow-Methods", "Get, POST, PUT, DELETE");
             res.header("Access-Controll-Allow-Headers", "Access, Content-type, Authorization, Acept, Origin, X-Requested-With");
             
-            this.app.unsubscribe(cors());
+            this.app.use(cors());
             next();
         })
     }
@@ -28,4 +28,4 @@ class App {
     }
 }
 
-module.exports = new App().app
+module.exports = new App().app;

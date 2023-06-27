@@ -1,7 +1,7 @@
-class userController {
+class UserController {
     index(req, res) {
         console.log(req.body);
     }
 }
 
-module.exports = new userController();
+module.exports = new UserController();
